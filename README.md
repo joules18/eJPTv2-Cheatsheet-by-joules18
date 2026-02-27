@@ -12,9 +12,9 @@ La idea es simple: **menos teoría suelta, más ejecución reproducible**.
 
 La mayoría de cheatsheets son listas gigantes de comandos. Este repo es otra cosa:
 
-- **Metodología de examen** (de IP → servicios → enum → exploit → post → flags) :contentReference[oaicite:4]{index=4}  
-- **Mini-playbooks paso a paso** (cuando estás bajo presión, no quieres “pensar”, quieres ejecutar) :contentReference[oaicite:5]{index=5}  
-- **Checklists + plantillas** para que documentes “como pro” y no pierdas puntos por desorden :contentReference[oaicite:6]{index=6} :contentReference[oaicite:7]{index=7}  
+- **Metodología de examen** (de IP → servicios → enum → exploit → post → flags)  
+- **Mini-playbooks paso a paso** (cuando estás bajo presión, no quieres “pensar”, quieres ejecutar)  
+- **Checklists + plantillas** para que documentes “como pro” y no pierdas puntos por desorden  
 - **Comandos limpios, sin duplicados** (lo mínimo necesario para llegar al objetivo)
 
 Este repositorio fue construido **cruzando y unificando** cheatsheets públicos de la comunidad, y se mantiene con una regla clara:
@@ -42,23 +42,11 @@ Si quieres contribuir: mejor aún. 🤝
 mkdir -p ~/ejpt/{nmap,loot,web,notes}
 cd ~/ejpt
 nano notes/notes.md
-Esto se repite en toda la metodología del repo 
-
-CHEATSHEET
-
-.
 
 2) Escaneo base “modo examen”
 nmap -Pn -p- -sS -T4 --open <IP> -oA nmap/tcp_all
 # luego:
 nmap -Pn -sC -sV -p <PORTS> <IP> -oA nmap/svc
-
-(Exactamente como lo guía el flujo principal) 
-
-CHEATSHEET
-
-.
-
 3) Elige tu “superficie primaria”
 
 SMB → PB-02
@@ -69,68 +57,42 @@ FTP → PB-04
 
 DB → PB-05
 
-Con shell → PB-06 
-
-PB-01-Recon-to-Services
+Con shell → PB-06
 
 🧭 Quick Navigation (por si estás apurado/a)
 📌 Lectura principal (empieza aquí)
 
-Main Cheat Sheet (Workflow completo): docs/CHEATSHEET.md 
-
-CHEATSHEET
+Main Cheat Sheet (Workflow completo): docs/CHEATSHEET.md
 
 🔎 Por servicio (cuando ya viste el puerto)
 
-docs/SERVICE_ENUM.md 
-
-SERVICE_ENUM
+docs/SERVICE_ENUM.md
 
 💥 Metasploit “modo examen”
 
-docs/MSF_WORKFLOW.md 
-
-MSF_WORKFLOW
+docs/MSF_WORKFLOW.md
 
 🧩 Mini-playbooks (mis favoritos)
 
-playbooks/PB-01-Recon-to-Services.md 
+playbooks/PB-01-Recon-to-Services.md
 
-PB-01-Recon-to-Services
+playbooks/PB-02-SMB-to-Loot.md
 
-playbooks/PB-02-SMB-to-Loot.md 
+playbooks/PB-03-HTTP-to-RCE.md
 
-COMMAND_LOG_TEMPLATE
+playbooks/PB-04-FTP-to-Creds.md
 
-playbooks/PB-03-HTTP-to-RCE.md 
+playbooks/PB-05-DB-to-Config-Flags.md
 
-PB-03-HTTP-to-RCE
-
-playbooks/PB-04-FTP-to-Creds.md 
-
-PB-04-FTP-to-Creds
-
-playbooks/PB-05-DB-to-Config-Flags.md 
-
-PB-05-DB-to-Config-Flags
-
-playbooks/PB-06-PostEx-FlagHunt.md 
-
-PB-06-PostEx-FlagHunt
+playbooks/PB-06-PostEx-FlagHunt.md
 
 ✅ Checklists + Templates (para no perderte)
 
-checklists/TARGET_CHECKLIST.md 
+checklists/TARGET_CHECKLIST.md
 
-TARGET_CHECKLIST
+checklists/COMMAND_LOG_TEMPLATE.md
 
-checklists/COMMAND_LOG_TEMPLATE.md 
-
-PB-02-SMB-to-Loot
-
-templates/NOTES_TEMPLATE.md 
-
-NOTES_TEMPLATE
+templates/NOTES_TEMPLATE.md
 
 🧠 Cómo usar esto como si fuese un “sistema” (no solo un PDF)
 🔁 Loop por target (la receta real)
@@ -148,12 +110,6 @@ Post-explotación
 Flags / credenciales / pivots
 
 Documentar y pasar al siguiente target
-
-Este loop es exactamente el índice del CHEATSHEET 
-
-CHEATSHEET
-
-.
 
 📸 Evidencia = velocidad + puntos
 
@@ -176,12 +132,6 @@ Antes de pasar a otra máquina, confirma:
  Guardaste loot + rutas + creds
 
  Actualizaste notas y dejaste comandos ganadores
-
-(Está también en TARGET_CHECKLIST.md) 
-
-TARGET_CHECKLIST
-
-.
 
 🤝 Contribuciones (sí, por favor)
 
@@ -226,10 +176,3 @@ Dale star, compártelo con tu grupo, y si alguien aprueba gracias a esto:
 abre un issue con tu feedback (qué te faltó, qué te sobró, qué harías distinto).
 
 Nos vemos en la meta. 🥷🔥
-
-
-Si quieres, también puedo:
-- meterte un **banner ASCII** pro,
-- agregar badges (eJPTv2 / Lab-only / Community),
-- y crear un `CONTRIBUTING.md` + `CODE_OF_CONDUCT.md` + `LICENSE` para que quede “open-source ready”.
-Fuentes
