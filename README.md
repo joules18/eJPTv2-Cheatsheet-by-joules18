@@ -42,3 +42,194 @@ Si quieres contribuir: mejor aún. 🤝
 mkdir -p ~/ejpt/{nmap,loot,web,notes}
 cd ~/ejpt
 nano notes/notes.md
+Esto se repite en toda la metodología del repo 
+
+CHEATSHEET
+
+.
+
+2) Escaneo base “modo examen”
+nmap -Pn -p- -sS -T4 --open <IP> -oA nmap/tcp_all
+# luego:
+nmap -Pn -sC -sV -p <PORTS> <IP> -oA nmap/svc
+
+(Exactamente como lo guía el flujo principal) 
+
+CHEATSHEET
+
+.
+
+3) Elige tu “superficie primaria”
+
+SMB → PB-02
+
+HTTP → PB-03
+
+FTP → PB-04
+
+DB → PB-05
+
+Con shell → PB-06 
+
+PB-01-Recon-to-Services
+
+🧭 Quick Navigation (por si estás apurado/a)
+📌 Lectura principal (empieza aquí)
+
+Main Cheat Sheet (Workflow completo): docs/CHEATSHEET.md 
+
+CHEATSHEET
+
+🔎 Por servicio (cuando ya viste el puerto)
+
+docs/SERVICE_ENUM.md 
+
+SERVICE_ENUM
+
+💥 Metasploit “modo examen”
+
+docs/MSF_WORKFLOW.md 
+
+MSF_WORKFLOW
+
+🧩 Mini-playbooks (mis favoritos)
+
+playbooks/PB-01-Recon-to-Services.md 
+
+PB-01-Recon-to-Services
+
+playbooks/PB-02-SMB-to-Loot.md 
+
+COMMAND_LOG_TEMPLATE
+
+playbooks/PB-03-HTTP-to-RCE.md 
+
+PB-03-HTTP-to-RCE
+
+playbooks/PB-04-FTP-to-Creds.md 
+
+PB-04-FTP-to-Creds
+
+playbooks/PB-05-DB-to-Config-Flags.md 
+
+PB-05-DB-to-Config-Flags
+
+playbooks/PB-06-PostEx-FlagHunt.md 
+
+PB-06-PostEx-FlagHunt
+
+✅ Checklists + Templates (para no perderte)
+
+checklists/TARGET_CHECKLIST.md 
+
+TARGET_CHECKLIST
+
+checklists/COMMAND_LOG_TEMPLATE.md 
+
+PB-02-SMB-to-Loot
+
+templates/NOTES_TEMPLATE.md 
+
+NOTES_TEMPLATE
+
+🧠 Cómo usar esto como si fuese un “sistema” (no solo un PDF)
+🔁 Loop por target (la receta real)
+
+Recon → puertos → servicios
+
+Enumeración por servicio
+
+Triage (¿hay exploit obvio?)
+
+Explotación
+
+Post-explotación
+
+Flags / credenciales / pivots
+
+Documentar y pasar al siguiente target
+
+Este loop es exactamente el índice del CHEATSHEET 
+
+CHEATSHEET
+
+.
+
+📸 Evidencia = velocidad + puntos
+
+Usa -oA siempre (nmap), guarda loot/, y pega lo importante en notes.md.
+
+Si un examen se trata de ejecutar bajo presión, tu organización te da puntos.
+
+🏆 “Modo examen”: checklist rápido
+
+Antes de pasar a otra máquina, confirma:
+
+ nmap -p- guardado (-oA)
+
+ nmap -sC -sV -p <ports> guardado
+
+ Enumeración por servicio hecha
+
+ Elegiste 1 vector principal (sin dispersarte)
+
+ Guardaste loot + rutas + creds
+
+ Actualizaste notas y dejaste comandos ganadores
+
+(Está también en TARGET_CHECKLIST.md) 
+
+TARGET_CHECKLIST
+
+.
+
+🤝 Contribuciones (sí, por favor)
+
+Si quieres mejorar este repo, aquí tienes ideas que aportan muchísimo:
+
+Mejorar comandos (typos, rutas de wordlists, flags de nmap)
+
+Agregar “rutas de decisión” (si SMB null falla → ¿qué sigue?)
+
+Playbooks para escenarios comunes (WordPress configs → DB → flags)
+
+Mejorar redacción / orden / “anti-duplicados”
+
+Agregar “common pitfalls” por herramienta
+
+Formato de contribución
+
+Mantén comandos reproducibles
+
+Evita “spam de herramientas”
+
+Aporta el por qué (1 línea) y el qué hacer después (2–3 líneas)
+
+🧩 Roadmap (lo que viene)
+
+ Versión “GitBook style” (navegación lateral + badges + index por temas)
+
+ Tablas de “Decisión rápida” (si veo X, hago Y)
+
+ Sección de “Errores comunes” (nmap/ffuf/gobuster/msf)
+
+ One-liners para parsing de outputs (solo si aportan claridad)
+
+⚠️ Disclaimer (importante)
+
+Este repositorio es para educación y práctica autorizada.
+No promueve el uso indebido de herramientas ni acciones fuera de alcance.
+
+⭐ Si te sirvió…
+
+Dale star, compártelo con tu grupo, y si alguien aprueba gracias a esto:
+abre un issue con tu feedback (qué te faltó, qué te sobró, qué harías distinto).
+
+Nos vemos en la meta. 🥷🔥
+
+
+Si quieres, también puedo:
+- meterte un **banner ASCII** pro,
+- agregar badges (eJPTv2 / Lab-only / Community),
+- y crear un `CONTRIBUTING.md` + `CODE_OF_CONDUCT.md` + `LICENSE` para que quede “open-source ready”.
+Fuentes
